@@ -1,0 +1,24 @@
+[project]
+name = "workflow-agent-runner"
+version = "0.1.0"
+description = "Local runner that drives Claude Code for the Workflow Designer PoC"
+authors = [
+    { name = "Garth Pickell", email = "garth.pickell@vertigis.com" }
+]
+requires-python = ">=3.12"
+dependencies = [
+    "claude-agent-sdk>=0.2.180",
+    "websockets>=17.4",
+]
+
+[project.scripts]
+workflow-agent-runner = "workflow_agent_runner.cli:main"
+
+[build-system]
+requires = ["uv_build>=0.13.0,<0.14.0"]
+build-backend = "uv_build"
+
+[dependency-groups]
+dev = [
+    "playwright>=1.65.0",
+]

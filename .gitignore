@@ -1,0 +1,9 @@
+# Python
+.venv/
+__pycache__/
+*.py[cod]
+dist/
+build/
+
+# UI smoke test screenshots (tests/ui_smoke.py default --out)
+ui-smoke/
