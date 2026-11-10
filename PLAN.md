@@ -62,6 +62,12 @@ A short browser test of the iframe relay should settle this. Include Safari if S
 
 **Terms:** Whether a third-party runner driving a user's own Claude Code through the SDK fits Anthropic's terms for the account types users will have, especially subscription logins versus API keys.
 
+- Agent SDK overview (https://code.claude.com/docs/en/agent-sdk/overview): "Unless previously approved, Anthropic does not allow third party developers to offer claude.ai login or rate limits for their products, including agents built on the Claude Agent SDK."
+- Claude Code legal and compliance (https://code.claude.com/docs/en/legal-and-compliance): third-party developers may not "route requests through Free, Pro, Max, or Ultra plan credentials on behalf of their users", nor "collect, store, or intermediate Claude.ai credentials or session tokens."
+- The runner never touches credentials, but driving a customer's subscription-signed-in Claude Code arguably "routes requests through" their plan. That makes it a gray area at best. API keys, Bedrock, Vertex and Foundry are the documented paths; anything else needs Anthropic's approval (contact sales).
+- The bundled-Claude-Code fallback means the runner's download includes Claude Code, which weakens "VertiGIS never ships Claude Code".
+- For personal PoC use this is moot. Before shipping to customers: ask Anthropic, through VertiGIS's account contact, describing exactly this setup.
+
 ## Security
 
 - Any local process can reach a localhost port. The runner checks connection origins and requires a pairing token.
